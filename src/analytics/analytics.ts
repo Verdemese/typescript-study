@@ -5,12 +5,15 @@ let duplicate = [...container];
 
 const button = document.querySelector("button")!;
 
-button.addEventListener("click", () => {
-    console.log("button clicked!!!");
-});
 
 function checkAnalytics(someData: string) {
     console.log(someData);
 }
 
 checkAnalytics("string data");
+
+function clickHandler(message: string) {
+    console.log('clicked! ' + message);
+}
+
+button.addEventListener("click", clickHandler.bind(null));

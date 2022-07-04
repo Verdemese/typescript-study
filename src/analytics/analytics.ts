@@ -16,4 +16,4 @@ function clickHandler(message: string) {
     console.log('clicked! ' + message);
 }
 
-button.addEventListener("click", clickHandler.bind(null));
+button.addEventListener("click", clickHandler.bind(null, 'through the function'));

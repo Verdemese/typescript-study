@@ -1,10 +1,6 @@
 console.log("watch mode is activated!!");
 
-let container = [1, 2, 3];
-let duplicate = [...container];
-
 const button = document.querySelector("button")!;
-
 
 function checkAnalytics(someData: string) {
     console.log(someData);
@@ -13,7 +9,7 @@ function checkAnalytics(someData: string) {
 checkAnalytics("string data");
 
 function clickHandler(message: string) {
-    console.log('clicked! ' + message);
+    console.log("clicked! " + message);
 }
 
-button.addEventListener("click", clickHandler.bind(null, 'through the function'));
+button.addEventListener("click", clickHandler.bind(null, "you're welcome!"));

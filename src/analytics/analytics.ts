@@ -61,11 +61,8 @@ console.log(class3.getPrivateStaticNumber());
 
 console.log(StaticClass.getPrivateStaticNumberWithStaticfunction());
 
-
 class ShortHand {
-    constructor (private readonly id:number, public name:string) {
-
-    }
+    constructor(private readonly id: number, public name: string) {}
 
     getId() {
         return this.id;
@@ -74,11 +71,23 @@ class ShortHand {
     setId(): void {
         // this.id = 2;
     }
-
 }
 
-const short = new ShortHand(1, 'verde');
+const short = new ShortHand(1, "verde");
 
 console.log(short.getId());
 console.log(short.name);
 
+class ITDepartment extends ShortHand {
+    constructor(id: number, name: string, private admins: string[]) {
+        super(id, name);
+    }
+
+    printAdmins() {
+        console.log(this.admins);
+    }
+}
+
+const department = new ITDepartment(1, "verde", ["verde", "boosee"]);
+
+department.printAdmins();

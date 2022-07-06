@@ -1,15 +1,15 @@
-console.log("watch mode is activated!!");
+// console.log("watch mode is activated!!");
 
 const button = document.querySelector("button")!;
 
 function checkAnalytics(someData: string) {
-    console.log(someData);
+    // console.log(someData);
 }
 
 checkAnalytics("string data");
 
 function clickHandler(message: string) {
-    console.log("clicked! " + message);
+    // console.log("clicked! " + message);
 }
 
 button.addEventListener("click", clickHandler.bind(null, "you're welcome!"));
@@ -56,17 +56,14 @@ class1.addStaticNumber();
 class2.addStaticNumber();
 class3.addStaticNumber();
 
-console.log(class3.getPrivateStaticNumber());
+// console.log(class3.getPrivateStaticNumber());
 
-console.log(StaticClass.getPrivateStaticNumberWithStaticfunction());
+// console.log(StaticClass.getPrivateStaticNumberWithStaticfunction());
 
 class ShortHand {
-    protected employees: string[] = ['verde', 'jaesoon'];
+    protected employees: string[] = ["verde", "jaesoon"];
 
-    constructor(
-        private readonly id: number,
-        public name: string
-    ) {}
+    constructor(protected readonly id: number, public name: string) {}
 
     getId(): number {
         return this.id;
@@ -83,16 +80,21 @@ class ShortHand {
 
 const short = new ShortHand(1, "verde");
 
-short.setName('jaesoon');
+short.setName("jaesoon");
 
-console.log(short.getId());
-console.log(short.name);
+// console.log(short.getId());
+// console.log(short.name);
 
 class ITDepartment extends ShortHand {
-    private lastReport: string = 'The climate has been changed a lot by human beings';
+    private lastReport: string =
+        "The climate has been changed a lot by human beings";
 
     constructor(id: number, name: string, private admins: string[]) {
         super(id, name);
+    }
+
+    static createEmployee(name: string) {
+        return { name };
     }
 
     setName(): void {
@@ -100,11 +102,11 @@ class ITDepartment extends ShortHand {
     }
 
     printAdmins(): void {
-        console.log(this.admins);
+        // console.log(this.admins);
     }
-    
+
     printEmployees() {
-        console.log(this.employees);
+        // console.log(this);
     }
 
     get recentReport() {
@@ -112,11 +114,11 @@ class ITDepartment extends ShortHand {
             return this.lastReport;
         }
 
-        throw new Error('There is no recent report');
+        throw new Error("There is no recent report");
     }
 
     set recentReport(value: string) {
-        if (!value) throw new Error('Please pass valid value');
+        if (!value) throw new Error("Please pass valid value");
 
         this.lastReport = value;
     }
@@ -128,5 +130,36 @@ department.printAdmins();
 department.setName();
 department.printEmployees();
 
-department.recentReport = 'valid value';
-console.log(department.recentReport);
+department.recentReport = "valid value";
+// console.log(department.recentReport);
+
+// console.log();
+// console.log(ITDepartment.createEmployee("verdemese"));
+
+abstract class Department {
+    protected abstract employee: string[];
+
+    abstract describe(this: Department): void;
+}
+
+class AccountingDepartment extends Department {
+    protected employee: string[] = ["verde", "mese"];
+
+    constructor(id: number, name: string) {
+        super();
+    }
+
+    // override from Department
+    describe(): void {
+        console.log("override method from Department");
+    }
+
+    get employeeContainer() {
+        return this.employee;
+    }
+}
+
+const account = new AccountingDepartment(1, "verde");
+
+account.describe();
+console.log(account.employeeContainer);

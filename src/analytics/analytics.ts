@@ -10,12 +10,9 @@ checkAnalytics("string data");
 
 function clickHandler(message: string) {
     console.log("clicked! " + message);
-<<<<<<< HEAD
 }
 
 button.addEventListener("click", clickHandler.bind(null, "you're welcome!"));
-=======
-}
 
 button.addEventListener(
     "click",
@@ -80,7 +77,6 @@ const short = new ShortHand(1, "verde");
 console.log(short.getId());
 console.log(short.name);
 
-<<<<<<< HEAD
 class ITDepartment extends ShortHand {
     constructor(id: number, name: string, private admins: string[]) {
         super(id, name);
@@ -94,6 +90,3 @@ class ITDepartment extends ShortHand {
 const department = new ITDepartment(1, "verde", ["verde", "boosee"]);
 
 department.printAdmins();
-=======
->>>>>>> 0dbc11c21bac0de1f1cfaabc633a93ea01a12930
->>>>>>> 39ee461a2420c1a1afd242895283acaaab2e05dd

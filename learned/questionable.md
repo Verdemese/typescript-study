@@ -12,3 +12,5 @@
 
 - singleton pattern이란?
 :memo: [singleton pattern wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
+
+- interface 와 abstract class의 차이

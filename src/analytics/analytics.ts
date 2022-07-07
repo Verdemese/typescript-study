@@ -1,22 +1,22 @@
 // console.log("watch mode is activated!!");
 
-const button = document.querySelector("button")!;
+const button = document.querySelector('button')!;
 
 function checkAnalytics(someData: string) {
     // console.log(someData);
 }
 
-checkAnalytics("string data");
+checkAnalytics('string data');
 
 function clickHandler(message: string) {
     // console.log("clicked! " + message);
 }
 
-button.addEventListener("click", clickHandler.bind(null, "you're welcome!"));
+button.addEventListener('click', clickHandler.bind(null, "you're welcome!"));
 
 button.addEventListener(
-    "click",
-    clickHandler.bind(null, "clicked with the binded function")
+    'click',
+    clickHandler.bind(null, 'clicked with the binded function')
 );
 
 class StaticClass {
@@ -24,7 +24,7 @@ class StaticClass {
     private static staticNumber: number = 1;
 
     constructor() {
-        this.name = "test";
+        this.name = 'test';
     }
 
     addStaticNumber(): void {
@@ -61,7 +61,7 @@ class3.addStaticNumber();
 // console.log(StaticClass.getPrivateStaticNumberWithStaticfunction());
 
 class ShortHand {
-    protected employees: string[] = ["verde", "jaesoon"];
+    protected employees: string[] = ['verde', 'jaesoon'];
 
     constructor(protected readonly id: number, public name: string) {}
 
@@ -78,16 +78,16 @@ class ShortHand {
     }
 }
 
-const short = new ShortHand(1, "verde");
+const short = new ShortHand(1, 'verde');
 
-short.setName("jaesoon");
+short.setName('jaesoon');
 
 // console.log(short.getId());
 // console.log(short.name);
 
 class ITDepartment extends ShortHand {
     private lastReport: string =
-        "The climate has been changed a lot by human beings";
+        'The climate has been changed a lot by human beings';
 
     constructor(id: number, name: string, private admins: string[]) {
         super(id, name);
@@ -98,7 +98,7 @@ class ITDepartment extends ShortHand {
     }
 
     setName(): void {
-        this.name = "verde";
+        this.name = 'verde';
     }
 
     printAdmins(): void {
@@ -114,23 +114,23 @@ class ITDepartment extends ShortHand {
             return this.lastReport;
         }
 
-        throw new Error("There is no recent report");
+        throw new Error('There is no recent report');
     }
 
     set recentReport(value: string) {
-        if (!value) throw new Error("Please pass valid value");
+        if (!value) throw new Error('Please pass valid value');
 
         this.lastReport = value;
     }
 }
 
-const department = new ITDepartment(1, "verde", ["verde", "boosee"]);
+const department = new ITDepartment(1, 'verde', ['verde', 'boosee']);
 
 department.printAdmins();
 department.setName();
 department.printEmployees();
 
-department.recentReport = "valid value";
+department.recentReport = 'valid value';
 // console.log(department.recentReport);
 
 // console.log();
@@ -143,7 +143,7 @@ abstract class Department {
 }
 
 class AccountingDepartment extends Department {
-    protected employee: string[] = ["verde", "mese"];
+    protected employee: string[] = ['verde', 'mese'];
 
     constructor(id: number, name: string) {
         super();
@@ -151,7 +151,7 @@ class AccountingDepartment extends Department {
 
     // override from Department
     describe(): void {
-        console.log("override method from Department");
+        console.log('override method from Department');
     }
 
     get employeeContainer() {
@@ -159,7 +159,52 @@ class AccountingDepartment extends Department {
     }
 }
 
-const account = new AccountingDepartment(1, "verde");
+const account = new AccountingDepartment(1, 'verde');
 
 account.describe();
 console.log(account.employeeContainer);
+
+type named = {
+    name: string;
+    age: number;
+    address: string;
+};
+
+interface Named {
+    name: string;
+    age: number;
+    address?: string;
+}
+
+interface Person extends Named {
+    greet(phrase: string): void;
+}
+
+let user1: Person = {
+    name: 'verde',
+    age: 27,
+    greet(phrase: string): void {
+        console.log(phrase + ' ' + this.name);
+    },
+};
+
+user1.greet('Nice to meet you');
+
+class PrintPerson implements Person {
+    name: string;
+    age: number;
+    address:string = '대전';
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet(): void {
+        console.log('my name is ' + this.name);
+    }
+}
+
+const printPerson = new PrintPerson('verde', 27);
+
+printPerson.greet();

@@ -40,8 +40,9 @@ printPerson.greet();
 - method를 선언할 수 있다.
 - readonly modifier를 사용할 수 있다.
 - 다른 interface로부터 상속 받을 수 있다.
-- multiple inheritance가 가능하다. (`,`를 사용하여 여러 inteface를 선언)
+- multiple inheritance가 가능하다. (`,`를 사용하여 여러 inteface를 입력)
 - `?`를 통해 optional parameter, function을 추가하는 것이 가능하다.
+
 #### interface 와 abstract class의 차이점
 
 | interface                                                                                 |                    abstract class |

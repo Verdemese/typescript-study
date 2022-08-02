@@ -55,3 +55,6 @@ printPerson.greet();
 
  
  :memo: [reference](https://stackoverflow.com/questions/50110844/what-is-the-difference-between-interface-and-abstract-class-in-typescript)
+
+### etc
+- interface에 concrete value를 지정하는 것은, concrete value를 가진 key와 똑같은 value를 가진 property가 존재해야 한다는 의미이다.

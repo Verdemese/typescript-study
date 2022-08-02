@@ -1,4 +1,4 @@
-type Combinable = number | string;
+type UnionCombinable = number | string;
 
 function combine(input1: Combinable, input2: Combinable) {
     let added;

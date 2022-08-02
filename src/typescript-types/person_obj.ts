@@ -4,7 +4,7 @@ enum role {
     AUTHOR = 'author'
 }
 
-const person =
+const newPerson =
     /* : {
     name: string;
     age: number;
@@ -43,6 +43,6 @@ const person =
 const copyHobbies: {
     num1: number;
     str1: string;
-}[] = person.complex;
+}[] = newPerson.complex;
 
-console.log(person.role);
+console.log(newPerson.role);
